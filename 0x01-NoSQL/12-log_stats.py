@@ -34,3 +34,4 @@ if __name__ == "__main__":
     for key, val in methods_dict.items():
         print("\tmethod {}: {}".format(key, val))
     print("{} status check".format(get_status))
+    client.close()
