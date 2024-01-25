@@ -1,6 +1,8 @@
 -- Create the 'need_meeting' view
+DROP VIEW IF EXISTS need_meeting;
+
 CREATE VIEW need_meeting AS
-    SELECT student_name
-    FROM students
-    WHERE score < 80
-      AND (last_meeting IS NULL OR last_meeting < NOW() - INTERVAL 1 MONTH);
+SELECT name 
+FROM students 
+WHERE score < 80 AND 
+(last_meeting IS NULL OR last_meeting < DATE(CURDATE() - INTERVAL 1 MONTH));
