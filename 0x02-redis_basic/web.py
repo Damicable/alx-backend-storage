@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Web implementation function module"""
+"""Web function cche implemention module"""
 
 
 import requests
@@ -8,9 +8,9 @@ import redis
 
 def get_page(url: str) -> str:
     """
-    get_page - Function  to obtain the HTML content of a particular URL.
-    @url: The url to obtain HTML content from
-    Return: String
+    get_page - Function to fetch pages from a url
+    @url: Url to fetch pages from
+    Returns: String
     """
     redis_instance = redis.Redis()
     contents = requests.get(url).text
