@@ -14,12 +14,12 @@ def replay(store_method: Callable) -> None:
     @store_method: Method whose history to show
     Returns: Nothing
     """
-    c_inst = store_method.__self__
-    i_key = store_method.__qualname__ + ":inputs"
-    o_key = store_method.__qualname__ + ":outputs"
-    count = int(c_inst.get(store_method.__qualname__))
-    inputs = c_inst._redis.lrange(i_key, 0, -1)
-    outputs = c_inst._redis.lrange(o_key, 0, -1)
+    cache_inst = store_method.__self__
+    input_key = store_method.__qualname__ + ":inputs"
+    output_key = store_method.__qualname__ + ":outputs"
+    count = int(cache_inst.get(store_method.__qualname__))
+    inputs = cache_inst._redis.lrange(input_key, 0, -1)
+    outputs = cache_inst._redis.lrange(output_key, 0, -1)
     print("Cache.store was called {} times".format(count))
     for i, o in zip(inputs, outputs):
         print("Cache.store(*({},)) -> {}".format(

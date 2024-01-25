@@ -2,6 +2,10 @@
 """Web implementation function module"""
 
 
+import requests
+import redis
+
+
 def get_page(url: str) -> str:
     """
     get_page - Function  to obtain the HTML content of a particular URL.
