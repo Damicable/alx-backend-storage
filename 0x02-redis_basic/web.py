@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""
-Web cache implementation
-"""
+""" Web cache implementation"""
+
+
 import requests
 import redis
 from functools import wraps
